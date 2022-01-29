@@ -14,39 +14,36 @@ if( $result2!=null ) {
     foreach($result2 as $data) {
         if(isset($_POST["name"])) {
             if($data["name"] === $_POST["name"]) {
-                $_SESSION["errname"]=1;
+                $_SESSION["errname"]="名前重複エラー";
                 header("location:signin.php");
             } else {
                 $_POST["name"] = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
                 $name = $_POST["name"];
-                $_SESSION['name'] = $_POST['name'];
             }
-        }
+        }else{$_SESSION["errname"]="名前無しエラー";header("location:signin.php");}
     }
-} else {
+} else {/*多分エラーの元
     $_POST["name"] = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
-    $name = $_POST["name"];
-    $_SESSION['name'] = $_POST['name'];
+    $name = $_POST["name"];*/
 }
 
 if(isset($_POST["pass"])){
     $_POST["pass"] = htmlspecialchars($_POST["pass"],ENT_QUOTES,"UTF-8");
     if(preg_match('/\w{8,}/u',$_POST["pass"]) == 1) {
         $pass = hash("sha256",$_POST["pass"]);
+        $stm = $pdo->prepare($sql);//プリペアードステートメントを作成
+        $stm->bindValue(":name",$name,PDO::PARAM_STR); 
+        $stm->bindValue(":pass",$pass,PDO::PARAM_STR); 
+        $stm->execute();        //sqlの実行
+        $_SESSION["name"] = $name;
+         echo "アカウント登録が完了しました！！"."<br>";
+        echo '<label>'.'<a href="title.php">'.'トップ画面へ'.'</a>'.'</label>'; 
     } else {
-        $_SESSION["errpass"]=1;
+        $_SESSION["errpass"]="パスワード書式エラー";
         header("location:signin.php");
     }
 }
 
-if(isset($name)==1 && isset($pass)==1 ) {
-    $stm = $pdo->prepare($sql);//プリペアードステートメントを作成
-    $stm->bindValue(":name",$name,PDO::PARAM_STR); 
-    $stm->bindValue(":pass",$pass,PDO::PARAM_STR); 
-    $stm->execute();        //sqlの実行
-    echo "アカウント登録が完了しました！！"."<br>";
-    echo '<label>'.'<a href="head.php">'.'トップ画面へ'.'</a>'.'</label>'; //今だけ<a head.php>修正➝title.php
-}
 
 
 
@@ -55,8 +52,7 @@ if(isset($name)==1 && isset($pass)==1 ) {
 
 
 
-
-
+/*
 //ここから下はlogin.phpの処理
 $home=2;//0になったらログイン成功
 //被った名前を探す
@@ -118,3 +114,4 @@ if($home <= 0) {
 }
 
 ?>
+*/
