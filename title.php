@@ -41,7 +41,7 @@
     <form action="title.php" id="form2" method="POST">
         <div class="form-top">
             <button type="submit" name="pull" class="button">－</button>
-            <span><?php echo "　".$_SESSION['level']."　";?></span>
+            <span class="tt"><?php echo "　".$_SESSION['level']."　";?></span>
             <button type="submit" name="add" class="button">＋</button>
         </div>
     </form>

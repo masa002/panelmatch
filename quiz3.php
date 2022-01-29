@@ -20,16 +20,18 @@
             require "head.php";
 
             $score = 0;
+            $cnt1 = $cnt2 = 0;
+
             $panels = $_SESSION["question"];
             if (isset($_POST["check"]) === false)$checks=[]; else $checks = $_POST["check"];
             $black_panel = $_SESSION["max_panel"] + 1;
             $white_panel = count($panels) - $black_panel;
             $a_panels = array_fill(0, count($panels), "white");
             foreach($checks as $check) {
-                if($panels[$check - 1] === "black") $score += 1000;
-                if($panels[$check - 1] === "white") $score -= 500;
+                if($panels[$check - 1] === "black") {$score += 1000; $cnt1+=1;}
+                if($panels[$check - 1] === "white") {$score -= 500; $cnt2 += 1;}
             }
 
 
-            echo "<h2 class='tt'>得点は".$score."ポイントです。</h2>";
+            echo "<h2 class='tt'>".$cnt1."個正解で、".$cnt2."個不正解です。得点は".$score."ポイントです。</h2>";
         ?>
