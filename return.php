@@ -110,7 +110,7 @@ if(isset($_POST["passlog"])) {
             $_SESSION["errpasslog"]="パスワードが違います";
             header("location:login.php");
         }
-    } else{$_SESSION["errnamelog"]=1; header("location:login.php");} //英数字８以上でなければやり直し
+    } else{$_SESSION["errnamelog"]="アルファベットと数字だけで8文字以上書いてね？"; header("location:login.php");} //英数字８以上でなければやり直し
 }
 echo $home;
 if($home <= 0) {

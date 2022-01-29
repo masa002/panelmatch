@@ -96,11 +96,11 @@ session_start();
         <h2>ログイン</h2>
         <form action="return.php" method="POST" >
 
-        <p>ユーザー名<?php if(isset($_SESSION["errnamelog"])){echo '<a style="color:#ff0000;font-size: 12px;">　　　　　　存在しない名前です</a>';}?></p>
+        <p>ユーザー名<?php if(isset($_SESSION["errnamelog"])){echo '<a style="color:#ff0000;font-size: 12px;">　　　　　　'.$_SESSION["errnamelog"].'</a>';}?></p>
         <input type="text" name="namelog" style="width: 30vw" required><br><br>
 
 
-        <p>パスワード<?php if(isset($_SESSION["errpasslog"])){echo '<a style="color:#ff0000";font-size: 12px;>　　　　　　アルファベットと数字だけで8文字以上書いてね？</a>';}?></p>
+        <p>パスワード<?php if(isset($_SESSION["errpasslog"])){echo '<a style="color:#ff0000";font-size: 12px;>　　　　　　'.$_SESSION["errpasslog"].'</a>';}?></p>
         <input type="password" name="passlog" placeholder="半角英数のみ8文字以上" style="width: 30vw" required><br><br>
 
         <input type="submit" value="ログイン" class="logsub">
