@@ -1,0 +1,85 @@
+.title {
+    margin-top: 0;
+    padding: 1rem 2rem;
+    color: #fff;
+    background: #ff9020;
+    background-image: radial-gradient(rgb(236, 166, 15) 13%, transparent 13%), radial-gradient(rgb(236, 166, 15) 13%, transparent 13%);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    font-size: 70px;
+    margin-top: 130px;
+    text-align: center;
+}
+
+.start-btn{
+    display       : inline-block;
+    border-radius : 25%;         /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 24px 100px;  /* 余白       */
+    background    : rgba(255, 166, 77, 0.82);   /* 背景色     */
+    color         : #ffffff;   /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
+}
+.start-btn:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+}
+
+h2.tt {
+    padding: 0.5em;       /*文字周りの余白*/
+    color: #494949;     /*文字色*/
+    background: #ffe4c4;/*背景色*/
+    border-left: solid 5px #ffaf58;/*左線（実線 太さ 色）*/
+    font-size: 35px;
+    color: rgb(75, 75, 75);
+    padding-left: 40px;
+    margin-top: 60px;
+}
+
+.form-top {
+    text-align: center;
+}
+
+.button {
+    display       : inline-block;
+    border-radius : 50%;         /* 角丸       */
+    font-size     : 17pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 7px 8px;     /* 余白       */
+    background    : #ff7f00;   /* 背景色     */
+    color         : #ffffff;   /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 2px 2px 9px #666666;  /* 影の設定 */
+}
+
+.button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+}
+
+span.tt {
+    font-size: 50px;
+}
+
+h3.tt {
+    max-width: 130px;
+    border-bottom: double 5px #FFC778;
+    font-size: 40px;
+    padding-left: 40px;
+    color: rgb(75, 75, 75);
+}
+
+p.tt {
+    font-size: 25px;
+    padding: 1.5em;/*文字周りの余白*/
+    color: #494949;/*文字色*/
+    background: #fdecd6;/*背景色*/
+}
+
+.time {
+    text-align: center;
+}
