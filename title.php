@@ -1,10 +1,13 @@
 <?php
     //初期値の設定
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        // セッションは有効で、開始していないとき
+        session_start();
+    }
 
     require "head.php";
 
-    if (isset($_SESSION["level"]) === false) $_SESSION["level"] = 1;
+    if (isset($_SESSION["level"]) === false) $_SESSION["level"] = 2;
     //難易度のカウントアップの処理
     if(isset($_POST['pull']) !== false){
         $_SESSION['level'] = $_SESSION['level'] - 1;
