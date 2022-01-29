@@ -1,6 +1,9 @@
 <?php
     //初期値の設定
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        // セッションは有効で、開始していないとき
+        session_start();
+    }
 
     require "head.php";
 
