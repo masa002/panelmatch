@@ -69,7 +69,7 @@ session_start();
     </head>
     <body class="h_body">
 	<header class="header">       
-	    <a href="head.php" class="h_topa">   <!-- 今だけaタグの中身 head.php➝修正title.php -->
+	    <a href="title.php" class="h_topa">   <!-- 今だけaタグの中身 head.php➝修正title.php -->
             <div class="h_top">
                 <img src="images/home.png" class="h_img1" alt="家の画像" >
                 <p>トップ</p>
@@ -78,7 +78,7 @@ session_start();
         <?php   //右側の表示
         //ログインしている状態かどうか、している
         if( isset($_SESSION['name']) ) {      //SESSIONに名前があるか   //今だけaタグの中身 head.php➝修正title.php ↓
-            echo "<div class='h_logout'><p>".$_SESSION['name']."さん</p><p class='h_logou'><a href='head.php'>ログアウト</a></p></div>";
+            echo "<div class='h_logout'><p>".$_SESSION['name']."さん</p><p class='h_logou'><a href='title.php'>ログアウト</a></p></div>";
             unset($_SESSION['name']);
         //ログインしていないとき
         } else {  

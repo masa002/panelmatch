@@ -65,7 +65,7 @@ $stm3 = $pdo->prepare($sql3);
 $stm3->execute();        
 $result3 = $stm3->fetchAll(PDO::FETCH_ASSOC);
 //一致するpassを探す
-$sql4 = "select pass from pm";
+$sql4 = "select pass from pm　where name = :namelog";
 $stm4 = $pdo->prepare($sql4);
 $stm4->execute();        
 $result4 = $stm4->fetchAll(PDO::FETCH_ASSOC);
@@ -82,6 +82,7 @@ if(isset($_POST["namelog"])){
             unset($_SESSION['errnamelog']);
             $stm5 = $pdo->prepare($sql5);
             $stm5->bindValue(":namelog",$_SESSION["name"],PDO::PARAM_STR);
+            $stm4->bindValue(":namelog",$_SESSION["name"],PDO::PARAM_STR);
             $stm5->execute();
             $result5 = $stm5->fetch(PDO::FETCH_ASSOC);
             var_dump($result5);
