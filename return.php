@@ -65,7 +65,7 @@ $stm3 = $pdo->prepare($sql3);
 $stm3->execute();        
 $result3 = $stm3->fetchAll(PDO::FETCH_ASSOC);
 //一致するpassを探す
-$sql4 = "select pass from pm　where name = :namelog";
+$sql4 = "select pass from pm where name = :namelog";
 $stm4 = $pdo->prepare($sql4);
 
 
