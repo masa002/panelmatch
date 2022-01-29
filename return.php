@@ -111,10 +111,11 @@ if(isset($_POST["passlog"])) {
                 if($result5["pass"] == $_POST["passlog"]){
                     header("location:head.php");
                 }
-            }else{
-                $_SESSION["errpasslog"]="パスワードが違います";
-                    header("location:login.php");
             }
+        }
+        if(hash_equals( $data4["pass"],$_POST["passlog"]) != 1){ 
+            $_SESSION["errpasslog"]="パスワードが違います";
+            header("location:login.php");
         }
     } else{$_SESSION["errnamelog"]=1; header("location:login.php");} //英数字８以上でなければやり直し
 }
