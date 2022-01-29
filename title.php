@@ -4,7 +4,7 @@
 
     require "head.php";
 
-    if (isset($_SESSION["level"]) === false) $_SESSION["level"] = 1;
+    if (isset($_SESSION["level"]) === false) $_SESSION["level"] = 2;
     //難易度のカウントアップの処理
     if(isset($_POST['pull']) !== false){
         $_SESSION['level'] = $_SESSION['level'] - 1;

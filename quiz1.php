@@ -49,11 +49,13 @@
         </script>
     </head>
     <body>
+        <?php require "head.php"; ?>
         <h2 class="tt" id="time"></h2>
         <?php
-            session_start();
-
-            require "head.php";
+            if (session_status() == PHP_SESSION_NONE) {
+                // セッションは有効で、開始していないとき
+                session_start();
+            }
 
             $level = $_SESSION["level"];
             $max = $level ** 2;

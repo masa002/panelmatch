@@ -1,4 +1,8 @@
 <?php
+    if (session_status() == PHP_SESSION_NONE) {
+        // セッションは有効で、開始していないとき
+        session_start();
+    }   
    if( isset($_POST['logout']) ) {
        unset($_SESSION['name']);
    }
