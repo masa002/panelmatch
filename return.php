@@ -70,23 +70,17 @@ $stm4 = $pdo->prepare($sql4);
 
 
 //登録されたname,passと$_POST["namelog"],$_POST["passlog]が同じならログイン
-$sql5 = "select pass from pm where name = :namelog";
+
 
 
 if(isset($_POST["namelog"])){
     foreach($result3 as $data3) {
         if($data3["name"] === $_POST["namelog"]) {
-            echo 'データベースにありました';
             $setname = htmlspecialchars($_POST["namelog"],ENT_QUOTES,"UTF-8");
             unset($_SESSION['errnamelog']);
-            $stm5 = $pdo->prepare($sql5);
-            $stm5->bindValue(":namelog",$_SESSION["name"],PDO::PARAM_STR);
-            $stm4->bindValue(":namelog",$_SESSION["name"],PDO::PARAM_STR);
+            $stm4->bindValue(":namelog",$setname,PDO::PARAM_STR);
             $stm4->execute();        
-            $result4 = $stm4->fetchAll(PDO::FETCH_ASSOC);
-            $stm5->execute();
-            $result5 = $stm5->fetch(PDO::FETCH_ASSOC);
-            var_dump($result5);
+            $result4 = $stm4->fetch(PDO::FETCH_ASSOC);
             break;
         } else{
             $_SESSION["errnamelog"]=1;
@@ -107,13 +101,9 @@ if(isset($_POST["passlog"])) {
         echo 'preg_match';
         $_POST["passlog"] = hash("sha256",$_POST["passlog"]);
         foreach($result4 as $data4){
-            echo 'foreach';
-            $op =hash_equals( $data4["pass"],$_POST["passlog"]);
-            echo $op;
             if( hash_equals( $data4["pass"],$_POST["passlog"])==1 ) {
-                if($result5["pass"] == $_POST["passlog"]){
-                    header("location:head.php");
-                }
+                $_SESSION["name"] = $setname;
+                 header("location:head.php");
             }
         }
         if(hash_equals( $data4["pass"],$_POST["passlog"]) != 1){ 
@@ -124,7 +114,7 @@ if(isset($_POST["passlog"])) {
 }
 echo $home;
 if($home <= 0) {
-    header("location:head.php");//ホームへ//今だけ<a head.php>修正➝title.php
+    header("location:title.php");//ホームへ//今だけ<a head.php>修正➝title.php
 }
 
 ?>
