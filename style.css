@@ -24,6 +24,7 @@
     transition    : .3s;         /* なめらか変化 */
     box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
 }
+
 .start-btn:hover {
     box-shadow    : none;        /* カーソル時の影消去 */
 }

@@ -34,4 +34,9 @@
 
 
             echo "<h2 class='tt'>".$cnt1."個正解で、".$cnt2."個不正解です。得点は".$score."ポイントです。</h2>";
+            echo "<div class='form-top'>";
+            echo "<form action='quiz1.php' id='form2' method='POST' style='display: inline'>";
+            echo "<button type='submit' class='button'>もう一度</button></form>";
+            echo "<form action='title.php' id='form2' method='POST' style='display: inline'>";
+            echo "<button type='submit' class='button'>タイトルへ戻る</button></form><div>";
         ?>
