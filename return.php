@@ -8,20 +8,20 @@ $sql = "INSERT INTO pm(name,pass) VALUES(:name,:pass)";
 $sql2 = "select name from pm";
 $stm2 = $pdo->prepare($sql2);
 $stm2->execute();        
-$result2 = $stm2->fetchAll(PDO::FETCH_ASSOC);
-
+$result2 = $stm2->fetch(PDO::FETCH_ASSOC);
+$nerr=1;
+$perr=1;
 if( $result2!=null ) {
-    foreach($result2 as $data) {
-        if(isset($_POST["name"])) {
-            if($data["name"] === $_POST["name"]) {
-                $_SESSION["errname"]="名前重複エラー";
-                header("location:signin.php");
-            } else {
-                $_POST["name"] = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
-                $name = $_POST["name"];
-            }
-        }else{$_SESSION["errname"]="名前無しエラー";header("location:signin.php");}
-    }
+    if(isset($_POST["name"])) {
+        if($result2["name"] === $_POST["name"]) {
+            $_SESSION["errname"]="名前重複エラー";
+            header("location:signin.php");
+        } else {
+            $name = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
+            $nerr = 0;
+             
+        }
+    }else{$_SESSION["errname"]="名前無しエラー";header("location:signin.php");}
 } else {/*多分エラーの元
     $_POST["name"] = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
     $name = $_POST["name"];*/
@@ -31,20 +31,22 @@ if(isset($_POST["pass"])){
     $_POST["pass"] = htmlspecialchars($_POST["pass"],ENT_QUOTES,"UTF-8");
     if(preg_match('/\w{8,}/u',$_POST["pass"]) == 1) {
         $pass = hash("sha256",$_POST["pass"]);
-        $stm = $pdo->prepare($sql);//プリペアードステートメントを作成
-        $stm->bindValue(":name",$name,PDO::PARAM_STR); 
-        $stm->bindValue(":pass",$pass,PDO::PARAM_STR); 
-        $stm->execute();        //sqlの実行
-        $_SESSION["name"] = $name;
-         echo "アカウント登録が完了しました！！"."<br>";
-        echo '<label>'.'<a href="title.php">'.'トップ画面へ'.'</a>'.'</label>'; 
+        $perr = 0;
     } else {
         $_SESSION["errpass"]="パスワード書式エラー";
         header("location:signin.php");
     }
 }
 
-
+if($perr != 1 && $nerr != 1 ) {
+    $stm = $pdo->prepare($sql);//プリペアードステートメントを作成
+    $stm->bindValue(":name",$name,PDO::PARAM_STR); 
+    $stm->bindValue(":pass",$pass,PDO::PARAM_STR); 
+    $stm->execute();        //sqlの実行
+    $_SESSION["name"];
+    echo "アカウント登録が完了しました！！"."<br>";
+    echo '<label>'.'<a href="head.php">'.'トップ画面へ'.'</a>'.'</label>'; //今だけ<a head.php>修正➝title.php
+}
 
 
 
