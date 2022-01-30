@@ -5,6 +5,7 @@ session_start();
     <head>
     <meta charset="UFT-8">
         <title>ログイン</title>
+        <link rel="stylesheet" href="style.css">
         <style>
             /* header 部分 */
             .h_body { 
@@ -60,7 +61,19 @@ session_start();
             .login p {
                 font-size: 1.3vw;
             }
-            .logsub { margin-left: 12vw; }
+            .logsub { margin-left: 6vw;
+                display       : inline-block;
+                border-radius : 25%;         /* 角丸       */
+                font-size     : 18pt;        /* 文字サイズ */
+                text-align    : center;      /* 文字位置   */
+                cursor        : pointer;     /* カーソル   */
+                padding       : 24px 100px;  /* 余白       */
+                background    : rgba(255, 166, 77, 0.82);   /* 背景色     */
+                color         : #ffffff;   /* 文字色     */
+                line-height   : 1em;         /* 1行の高さ  */
+                transition    : .3s;         /* なめらか変化 */
+                 box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
+            }
             .h4 {
                 margin-top: 5vh;
                 text-align: center;
@@ -96,12 +109,12 @@ session_start();
         <h2>ログイン</h2>
         <form action="return.php" method="POST" >
 
-        <p>ユーザー名<?php if(isset($_SESSION["errnamelog"])){echo '<a style="color:#ff0000;font-size: 12px;">　　　　　　'.$_SESSION["errnamelog"].'</a>';}?></p>
-        <input type="text" name="namelog" style="width: 30vw" required><br><br>
+        <label><p>ユーザー名<?php if(isset($_SESSION["errnamelog"])){echo '<a style="color:#ff0000;font-size: 12px;">　　　　　　'.$_SESSION["errnamelog"].'</a>';}?></p>
+        <input type="text" name="namelog" style="width: 30vw" required></label><br><br>
 
 
-        <p>パスワード<?php if(isset($_SESSION["errpasslog"])){echo '<a style="color:#ff0000";font-size: 12px;>　　　　　　'.$_SESSION["errpasslog"].'</a>';}?></p>
-        <input type="password" name="passlog" placeholder="半角英数のみ8文字以上" style="width: 30vw" required><br><br>
+        <label><p>パスワード<?php if(isset($_SESSION["errpasslog"])){echo '<a style="color:#ff0000";font-size: 12px;>　　　　　　'.$_SESSION["errpasslog"].'</a>';}?></p>
+        <input type="password" name="passlog" placeholder="半角英数のみ8文字以上" style="width: 30vw" required></label><br><br>
 
         <input type="submit" value="ログイン" class="logsub">
 
