@@ -3,7 +3,7 @@
 $user = "root";
 $pass="i0GKtpBFg7hcOTLcQPf6UETxnICFkRTl";
 $database="pm";
-$server=localhost;
+$server="dbwx0a.stackhero-network.com";
 
 //DSN文字列の生成
 $dsn = "mysql:host={$server};dbname={$database};cherset=utf8";
