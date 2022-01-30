@@ -16,15 +16,16 @@
                 font-size: 40px;
                 
             }
-            .lf { 
+            .lf {
                 text-align: center;
                 font-size: 25px;
                 
             }
             .p_img {
-                width:30px;
-                height:30px;
+                width:40px;
+                height:40px;
             }
+            
         </style>
     </head>
     <body>
@@ -54,9 +55,9 @@
             $result = $stm->fetch(PDO::FETCH_ASSOC);
             echo "<div class='ll'>";
             echo "<p class='be'>BEST SCORE!!</P>";
-            echo "<p class='lf1'><img src='images/kin.png' class='p_img'>1.".$result["score1"]."ポイント</p>";
-            echo "<p class='lf'><img src='images/gin.png' class='p_img'>2.".$result["score2"]."ポイント</p>";
-            echo "<p class='lf'><img src='images/dou.png' class='p_img'>3.".$result["score3"]."ポイント</p>";
+            echo "<p class='lf1'><img src='images/kin.png' class='p_img'>".$result["score1"]."ポイント</p>";
+            echo "<p class='lf'><img src='images/gin.png' class='p_img'>".$result["score2"]."ポイント</p>";
+            echo "<p class='lf'><img src='images/dou.png' class='p_img'>".$result["score3"]."ポイント</p>";
             echo "<p class='lf'>4.".$result["score4"]."ポイント</p>";
             echo "<p class='lf'>5.".$result["score5"]."ポイント</p>";
             echo "</div>";
