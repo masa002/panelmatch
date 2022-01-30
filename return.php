@@ -88,7 +88,7 @@ if(isset($_POST["namelog"])){
             $result4 = $stm4->fetch(PDO::FETCH_ASSOC);
             break;
         } else{
-            $_SESSION["errnamelog"]='名前が存在しません';
+            $_SESSION["errnamelog"]='';
              header("location:login.php");
 
         }
