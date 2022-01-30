@@ -3,6 +3,8 @@
         // セッションは有効で、開始していないとき
         session_start();
     }
+    if (isset($_SESSION["name"]) === false) 
+
     // 名前表示
     echo $_SESSION["name"]."<br>";
     echo "ベストスコア";

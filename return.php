@@ -50,16 +50,10 @@ if($perr != 1 && $nerr != 1 ) {
     $stm->bindValue(":name",$name,PDO::PARAM_STR); 
     $stm->bindValue(":pass",$pass,PDO::PARAM_STR); 
     $stm->execute();        //sqlの実行
-<<<<<<< HEAD
-    $_SESSION["name"];
-    echo "アカウント登録が完了しました！！"."<br>";
-    echo '<label>'.'<a href="title.php">'.'トップ画面へ'.'</a>'.'</label>';
-=======
     //$_SESSION["name"] = $name;
     $_SESSION["signin"] = 1;
     header("location:signin.php");
 
->>>>>>> 296fdae4f1c6333fb2e5fe85e69f35685365a858
 }
 
 
@@ -112,20 +106,6 @@ if(isset($_POST["passlog"])) {
         $_POST["passlog"] = hash("sha256",$_POST["passlog"]);
             if( hash_equals( $result4["pass"],$_POST["passlog"])==1 ) {
                 $_SESSION["name"] = $setname;
-<<<<<<< HEAD
-                header("location:title.php");
-            }
-        }
-        if(hash_equals( $data4["pass"],$_POST["passlog"]) != 1){ 
-            $_SESSION["errpasslog"]="パスワードが違います";
-            header("location:login.php");
-        }
-    } else{$_SESSION["errnamelog"]="アルファベットと数字だけで8文字以上書いてね？"; header("location:login.php");} //英数字８以上でなければやり直し
-}
-echo $home;
-if($home <= 0) {
-    header("location:title.php");//ホームへ
-=======
                  header("location:title.php");
             }else{
                 $_SESSION["errpasslog"]="パスワードが違います";
@@ -133,7 +113,6 @@ if($home <= 0) {
 
             
     } else{$_SESSION["errpasslog"]="アルファベットと数字だけで8文字以上書いてね？"; header("location:login.php");} //英数字８以上でなければやり直し
->>>>>>> 296fdae4f1c6333fb2e5fe85e69f35685365a858
 }
 
 ?>
