@@ -104,6 +104,10 @@ session_start();
 
     </form>
     </div>
+    <div><?php if(isset($_SESSION["name"]) == 1 && $_SESSION["signin"] == 1) {
+        echo '<h1>アカウント登録完了しました！！</h1>';
+                //unset($_SESSION["signin"]);
+            } ?></div>
     </body>
 </html>
 
