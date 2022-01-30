@@ -54,5 +54,10 @@
         </p>
         <!--ランキングタイトル-->
         <h2 class="tt">ランキング</h2>
+
+<?php   if(isset($_SESSION["name"])){
+
+}
+?>
   </body>
 </html>
