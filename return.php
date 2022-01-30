@@ -50,9 +50,10 @@ if($perr != 1 && $nerr != 1 ) {
     $stm->bindValue(":name",$name,PDO::PARAM_STR); 
     $stm->bindValue(":pass",$pass,PDO::PARAM_STR); 
     $stm->execute();        //sqlの実行
-    $_SESSION["name"] = $name;
-    header("location:signin.php");
+    //$_SESSION["name"] = $name;
     $_SESSION["signin"] = 1;
+    header("location:signin.php");
+
 }
 
 

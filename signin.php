@@ -62,6 +62,7 @@ session_start();
             }
             .signin a { font-size: 12px; }
             .sigsub { margin-left: 12vw; }
+            .aka{ text-align: center; color:blue; font-family: 'Meiryo'; margin-top: 50px; }
         </style>
     </head>
     <body class="h_body">
@@ -104,9 +105,9 @@ session_start();
 
     </form>
     </div>
-    <div><?php if(isset($_SESSION["name"]) == 1 && $_SESSION["signin"] == 1) {
-        echo '<h1>アカウント登録完了しました！！</h1>';
-                //unset($_SESSION["signin"]);
+    <div><?php if( isset($_SESSION["signin"])) {
+        echo '<h1 class="aka">アカウント登録完了しました！！</h1>';
+                unset($_SESSION["signin"]);
             } ?></div>
     </body>
 </html>
