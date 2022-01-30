@@ -34,9 +34,18 @@
 
 
             echo "<h2 class='tt'>".$cnt1."個正解で、".$cnt2."個不正解です。得点は".$score."ポイントです。</h2>";
-            echo "<div class='form-top'>";
-            echo "<form action='quiz1.php' id='form2' method='POST' style='display: inline'>";
-            echo "<button type='submit' class='button'>もう一度</button></form>";
-            echo "<form action='title.php' id='form2' method='POST' style='display: inline'>";
-            echo "<button type='submit' class='button'>タイトルへ戻る</button></form><div>";
+            echo "<div class='form-top'><form action='quiz1.php' method='POST'><input type='submit' value='もう一度プレイ' class='start-btn'></form></div>";
+
+            $sql = "INSERT INTO pm(score) VALUES(:score) WHERE name = :name";
+
+            // プリペアドステートメントを作成する
+            $stm = $pdo->prepare($sql);
+            // プレースホルダに値をバインドさせる
+            $stm->bindValue(':name', $_SESSION["name"], PDO::PARAM_STR);
+            $stm->bindValue(':score', $_SESSION["score"], PDO::PARAM_STR);
+            // SQLを実行する
+            $stm->execute();
+        
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            echo $result["score"];
         ?>

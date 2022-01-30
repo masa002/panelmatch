@@ -1,4 +1,7 @@
 <?php
+    require "db_connect.php";
+    require "head.php";
+
     if (session_status() == PHP_SESSION_NONE) {
         // セッションは有効で、開始していないとき
         session_start();
@@ -19,5 +22,5 @@
     $stm->execute();
 
     $result = $stm->fetch(PDO::FETCH_ASSOC);
-    echo $result;
+    echo $result["score"];
 ?>
