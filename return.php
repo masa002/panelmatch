@@ -82,7 +82,7 @@ if(isset($_POST["namelog"]) && $_POST["name"] !== ""){
 }
 if(isset($_POST["passlog"])) {
     $_POST["passlog"] = htmlspecialchars($_POST["passlog"],ENT_QUOTES,"UTF-8");
-    if(preg_match('/\w{8,}/u',$_POST["passlog"]) == 1) {
+    if(preg_match('/\w{8,100}/u',$_POST["passlog"]) == 1) {
         $_POST["passlog"] = hash("sha256",$_POST["passlog"]);
             if( hash_equals( $result4["pass"],$_POST["passlog"])==1 ) {
                 $_SESSION["name"] = $setname;
