@@ -54,5 +54,21 @@
         </p>
         <!--ランキングタイトル-->
         <h2 class="tt">ランキング</h2>
+        <?php
+        require "db_connect.php";
+
+        $sql = "SELECT name, score1 FROM pm ORDER BY `pm`.`score1` DESC LIMIT 5;";
+        $stm = $pdo->prepare($sql);
+        // SQLを実行する
+        $stm->execute();
+        $result = $stm->fetchALL(PDO::FETCH_ASSOC);
+
+        $cnt = 1;
+
+        foreach($result as $data){
+            echo $cnt.".".$data["name"]."さん：".$data["score1"]."ポイント<br>";
+            $cnt += 1;
+        }
+    ?>
   </body>
 </html>
