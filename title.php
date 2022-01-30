@@ -48,13 +48,13 @@
         </div>
     </form>
     <h2 class="tt">説明</h2>
-        <p class="tt">
-            このクイズアプリは、10秒間で黒く塗られたパネルの場所を覚えて、どこが黒く塗りつぶされたか思い出してその場所を押して最後にどれくらい覚えていたかを
-            採点するクイズゲームです。最高得点目指してみんな頑張ろう！
-        </p>
-        <!--ランキングタイトル-->
-        <h2 class="tt">ランキング</h2>
-        <?php
+    <p class="tt">
+        このクイズアプリは、10秒間で黒く塗られたパネルの場所を覚えて、どこが黒く塗りつぶされたか思い出してその場所を押して最後にどれくらい覚えていたかを
+        採点するクイズゲームです。最高得点目指してみんな頑張ろう！
+    </p>
+    <!--ランキングタイトル-->
+    <h2 class="tt">ランキング</h2>
+    <?php
         require "db_connect.php";
 
         $sql = "SELECT name, score1 FROM pm ORDER BY `pm`.`score1` DESC LIMIT 5;";
@@ -66,7 +66,18 @@
         $cnt = 1;
 
         foreach($result as $data){
-            echo $cnt.".".$data["name"]."さん：".$data["score1"]."ポイント<br>";
+            echo "<div class='rk'><p>";
+            switch($cnt) {
+                case 1: echo "<img src='images/kin.png'>".$data["name"]."さん：".$data["score1"]."ポイント";
+                        break;
+                case 2: echo "<img src='images/gin.png'>".$data["name"]."さん：".$data["score1"]."ポイント";
+                        break;
+                case 3: echo "<img src='images/dou.png'>".$data["name"]."さん：".$data["score1"]."ポイント";
+                        break;
+                default: echo $cnt.".".$data["name"]."さん：".$data["score1"]."ポイント";
+            }
+            //echo $cnt.".".$data["name"]."さん：".$data["score1"]."ポイント";
+            echo "</p></div>";
             $cnt += 1;
         }
     ?>
