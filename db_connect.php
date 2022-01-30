@@ -3,7 +3,7 @@
 $user = "root";
 $pass="i0GKtpBFg7hcOTLcQPf6UETxnICFkRTl";
 $database="php_jugyo";
-$server="127.0.0.1:3308";
+$server=localhost;
 
 //DSN文字列の生成
 $dsn = "mysql:host={$server};dbname={$database};cherset=utf8";
