@@ -2,7 +2,7 @@
 //ユーザー名、パスワード、データベース名、サーバー
 $user = "root";
 $pass="7mFHARaTxuSA5mzpMklIFh5M37N0JZId";
-$database="dbwx0a.stackhero-network.com";
+$database="pm";
 $server=localhost;
 
 //DSN文字列の生成
