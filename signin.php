@@ -53,7 +53,17 @@ session_start();
             .h_signin:hover { transform: scale(1.2,1.2); }
 
             /* signin部分 */
-            .signin {
+            .signin {    display       : inline-block;
+                    border-radius : 25%;         /* 角丸       */
+                    font-size     : 18pt;        /* 文字サイズ */
+                    text-align    : center;      /* 文字位置   */
+                    cursor        : pointer;     /* カーソル   */
+                    padding       : 24px 100px;  /* 余白       */
+                    background    : rgba(255, 166, 77, 0.82);   /* 背景色     */
+                    color         : #ffffff;   /* 文字色     */
+                    line-height   : 1em;         /* 1行の高さ  */
+                    transition    : .3s;         /* なめらか変化 */
+                    box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
                 margin-top: 5vw;
                 margin-left: 35vw;
             }
@@ -94,12 +104,12 @@ session_start();
     <form action="return.php" method="POST" >
         <h2>アカウント登録</h2>
 
-        <p>ユーザー名<?php if(isset($_SESSION["errname"])){echo '<a style="color:#ff0000;font-size: 12px;">　　　　　　'.$_SESSION["errname"].'</a>';}?></p>
-        <input type="text" name="name" style="width: 30vw" required><br><br>
+        <label><p>ユーザー名<?php if(isset($_SESSION["errname"])){echo '<a style="color:#ff0000;font-size: 12px;">　　　　　　'.$_SESSION["errname"].'</a>';}?></p>
+        <input type="text" name="name" style="width: 30vw" required></label><br><br>
 
 
-        <p>パスワード<?php if(isset($_SESSION["errpass"])){echo '<a style="color:#ff0000";font-size: 12px;>　　　　　　'.$_SESSION["errpass"].'</a>';}?></p>
-        <input type="password" name="pass" placeholder="半角英数のみ8文字以上" style="width: 30vw" required><br><br>
+        <label><p>パスワード<?php if(isset($_SESSION["errpass"])){echo '<a style="color:#ff0000";font-size: 12px;>　　　　　　'.$_SESSION["errpass"].'</a>';}?></p>
+        <input type="password" name="pass" placeholder="半角英数のみ8文字以上" style="width: 30vw" required></label><br><br>
 
         <input type="submit" value="登録" class="sigsub">
 
