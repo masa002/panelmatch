@@ -93,11 +93,11 @@ session_start();
     <form action="return.php" method="POST" >
         <h2>アカウント登録</h2>
 
-        <p>ユーザー名<?php if(isset($_SESSION["errname"])){echo '<a style="color:#ff0000;font-size: 12px;">　　　　　　もう使われている名前だよ？</a>';}?></p>
+        <p>ユーザー名<?php if(isset($_SESSION["errname"])){echo '<a style="color:#ff0000;font-size: 12px;">　　　　　　'.$_SESSION["errname"].'</a>';}?></p>
         <input type="text" name="name" style="width: 30vw" required><br><br>
 
 
-        <p>パスワード<?php if(isset($_SESSION["errpass"])){echo '<a style="color:#ff0000";font-size: 12px;>　　　　　　アルファベットと数字だけで8文字以上書いてね？</a>';}?></p>
+        <p>パスワード<?php if(isset($_SESSION["errpass"])){echo '<a style="color:#ff0000";font-size: 12px;>　　　　　　'.$_SESSION["errpass"].'アルファベットと数字だけで8文字以上書いてね？</a>';}?></p>
         <input type="password" name="pass" placeholder="半角英数のみ8文字以上" style="width: 30vw" required><br><br>
 
         <input type="submit" value="登録" class="sigsub">
