@@ -21,7 +21,7 @@ if( $result2!=null ) {
             $nerr = 0;
              
         }
-    }else{$_SESSION["errname"]="名前無しエラー";header("location:signin.php");}
+    }else{$_SESSION["errname"]="名前を書いてください";header("location:signin.php");}
 } else {/*多分エラーの元
     $_POST["name"] = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
     $name = $_POST["name"];*/
