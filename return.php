@@ -8,7 +8,7 @@ $sql = "INSERT INTO pm(name,pass) VALUES(:name,:pass)";
 $sql2 = "select name from pm";
 $stm2 = $pdo->prepare($sql2);
 $stm2->execute();        
-$result2 = $stm2->fetch(PDO::FETCH_ASSOC);
+$result2 = $stm2->fetchAll(PDO::FETCH_ASSOC);
 $nerr=1;
 $perr=1;
 unset($_SESSION["errname"]);
@@ -42,7 +42,7 @@ if(isset($_POST["pass"])){
         header("location:signin.php");
     }
 }
-if($perr != 1 && $nerr != 1 ) {
+if($perr != 1 && $nerr != 1 && isset($name) && isset($pass)) {
     $stm = $pdo->prepare($sql);//プリペアードステートメントを作成
     $stm->bindValue(":name",$name,PDO::PARAM_STR); 
     $stm->bindValue(":pass",$pass,PDO::PARAM_STR); 
@@ -50,7 +50,7 @@ if($perr != 1 && $nerr != 1 ) {
     //$_SESSION["name"] = $name;
     $_SESSION["signin"] = 1;
     header("location:signin.php");
-}
+}else{header("location:signin.php");}
 //ここから下はlogin.phpの処理
 $home=2;//0になったらログイン成功
 //被った名前を探す
