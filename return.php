@@ -11,6 +11,13 @@ $stm2->execute();
 $result2 = $stm2->fetch(PDO::FETCH_ASSOC);
 $nerr=1;
 $perr=1;
+unset($_SESSION["errname"]);
+unset($_SESSION["errpass"]);
+unset($_SESSION["errnamelog"]);
+unset($_SESSION["errpasslog"]);
+
+
+
 if( $result2!=null ) {
     if(isset($_POST["name"])) {
         if($result2["name"] === $_POST["name"]) {
