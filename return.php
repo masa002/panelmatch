@@ -103,14 +103,13 @@ if(isset($_POST["passlog"])) {
     $_POST["passlog"] = htmlspecialchars($_POST["passlog"],ENT_QUOTES,"UTF-8");
     if(preg_match('/\w{8,}/u',$_POST["passlog"]) == 1) {
         $_POST["passlog"] = hash("sha256",$_POST["passlog"]);
-        foreach($result4 as $data4){
-            if( hash_equals( $data4["pass"],$_POST["passlog"])==1 ) {
+            if( hash_equals( $result4["pass"],$_POST["passlog"])==1 ) {
                 $_SESSION["name"] = $setname;
                  header("location:title.php");
             }else{
                 $_SESSION["errpasslog"]="パスワードが違います";
                 header("location:login.php");}
-        }
+
             
     } else{$_SESSION["errpasslog"]="アルファベットと数字だけで8文字以上書いてね？"; header("location:login.php");} //英数字８以上でなければやり直し
 }
