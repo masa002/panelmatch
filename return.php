@@ -21,18 +21,19 @@ unset($_SESSION["errpasslog"]);
 if( $result2!=null ) {
     if(isset($_POST["name"])) {
         foreach($result2 as $dust){
-        if($dust["name"] === $_POST["name"]) {
-            $_SESSION["errname"]="もう使われている名前だよ？";
-            header("location:signin.php");
-        } else {
-            $name = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
-            $nerr = 0;
-        }
+            if($dust["name"] === $_POST["name"]){
+             $_SESSION["errname"]="もう使われている名前だよ？";
+             header("location:signin.php");
+           } else {
+                $name = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
+                $nerr = 0;
+            }
     }
     }else{$_SESSION["errname"]="名前を書いてください";header("location:signin.php");}
-} else {/*多分エラーの元
+} else {
     $_POST["name"] = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
-    $name = $_POST["name"];*/
+    $name = $_POST["name"];
+    $nerr = 0;
 }
 
 if(isset($_POST["pass"])){
@@ -54,7 +55,6 @@ if($perr != 1 && $nerr != 1 ) {
     //$_SESSION["name"] = $name;
     $_SESSION["signin"] = 1;
     header("location:signin.php");
-
 }
 
 
