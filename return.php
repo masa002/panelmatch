@@ -29,7 +29,7 @@ if(isset($_POST["name"])) {
                 $nerr = 0;
             }
         }
-    } else { //$_SESSION["errname"]="名前を書いてください";header("location:signin.php");}
+    } else {
         $name = htmlspecialchars($_POST['name'],ENT_QUOTES,"UTF-8" );
         $nerr = 0;
     }
@@ -54,7 +54,6 @@ if($perr != 1 && $nerr != 1 ) {
     //$_SESSION["name"] = $name;
     $_SESSION["signin"] = 1;
     header("location:signin.php");
-
 }
 
 
