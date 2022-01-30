@@ -97,7 +97,7 @@ if(isset($_POST["namelog"])){
         echo 20;
         header("location:login.php");
     }
-}else{$_SESSION['errnamelog'] = "名前を書いてください";header("location:login.php");}
+}
 
 if(isset($_POST["passlog"])) {
     $_POST["passlog"] = htmlspecialchars($_POST["passlog"],ENT_QUOTES,"UTF-8");
@@ -112,7 +112,7 @@ if(isset($_POST["passlog"])) {
                 header("location:login.php");}
         }
             
-    } else{$_SESSION["errnamelog"]="アルファベットと数字だけで8文字以上書いてね？"; header("location:login.php");} //英数字８以上でなければやり直し
+    } else{$_SESSION["errpasslog"]="アルファベットと数字だけで8文字以上書いてね？"; header("location:login.php");} //英数字８以上でなければやり直し
 }
 
 ?>
