@@ -15,11 +15,8 @@ unset($_SESSION["errname"]);
 unset($_SESSION["errpass"]);
 unset($_SESSION["errnamelog"]);
 unset($_SESSION["errpasslog"]);
-<<<<<<< HEAD
-=======
 
 
->>>>>>> d76e82ed541868d7f283816ba6b5f572f41e161a
 // $result2 -> select name from pm
 if(isset($_POST["name"])) {
     if( $result2!=null ) {
