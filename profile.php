@@ -35,9 +35,9 @@
             $stm->execute();
 
             $result = $stm->fetch(PDO::FETCH_ASSOC);
-            echo "<p class='lf'>1.".$result["score1"]."ポイント</p>";
-            echo "<p class='lf'>2.".$result["score2"]."ポイント</p>";
-            echo "<p class='lf'>3.".$result["score3"]."ポイント</p>";
-            echo "<p class='lf'>4.".$result["score4"]."ポイント</p>";
-            echo "<p class='lf'>5.".$result["score5"]."ポイント</p>";
+            echo "<strong class='lf'>1.".$result["score1"]."ポイント</strong></p>";
+            echo "<strong class='lf'>2.".$result["score2"]."ポイント</strong></p>";
+            echo "<strong class='lf'>3.".$result["score3"]."ポイント</strong></p>";
+            echo "<p><strong class='lf'>4.".$result["score4"]."ポイント</strong></p>";
+            echo "<p><strong class='lf'>5.".$result["score5"]."ポイント</strong></p>";
         ?>
