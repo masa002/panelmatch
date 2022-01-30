@@ -120,4 +120,19 @@ window.onload = function(){
     ?>
     }
 }
+
+window.onload = function(){
+document.getElementById("mainForm").onsubmit = function(){
+<?php
+if(isset($_SESSION["errname"])){
+unset($_SESSION["errname"]);
+} 
+if(isset($_SESSION["errpass"])){
+unset($_SESSION["errpass"]);
+} 
+//submitが押されたらsessionを破棄
+?>
+}
+}
+
 </script>

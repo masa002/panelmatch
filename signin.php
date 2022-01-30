@@ -117,8 +117,6 @@ unset($_SESSION["errname"]);
 if(isset($_SESSION["errpass"])){
 unset($_SESSION["errpass"]);
 } 
-
-
 //submitが押されたらsessionを破棄
 ?>
 }
