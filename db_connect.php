@@ -1,7 +1,7 @@
 <?php
 //ユーザー名、パスワード、データベース名、サーバー
 $user = "root";
-$pass="i0GKtpBFg7hcOTLcQPf6UETxnICFkRTl";
+$pass="7mFHARaTxuSA5mzpMklIFh5M37N0JZId";
 $database="php_jugyo";
 $server=localhost;
 
