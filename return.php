@@ -50,9 +50,9 @@ if($perr != 1 && $nerr != 1 ) {
     $stm->bindValue(":name",$name,PDO::PARAM_STR); 
     $stm->bindValue(":pass",$pass,PDO::PARAM_STR); 
     $stm->execute();        //sqlの実行
-    $_SESSION["name"];
+    $_SESSION["name"] = $name;
     echo "アカウント登録が完了しました！！"."<br>";
-    echo '<label>'.'<a href="head.php">'.'トップ画面へ'.'</a>'.'</label>'; //今だけ<a head.php>修正➝title.php
+    echo '<label>'.'<a href="title.php">'.'トップ画面へ'.'</a>'.'</label>'; //今だけ<a head.php>修正➝title.php
 }
 
 
@@ -100,15 +100,13 @@ if(isset($_POST["namelog"])){
 }else{$_SESSION['errnamelog'] = "名前を書いてください";header("location:login.php");}
 
 if(isset($_POST["passlog"])) {
-    echo 'post';
     $_POST["passlog"] = htmlspecialchars($_POST["passlog"],ENT_QUOTES,"UTF-8");
     if(preg_match('/\w{8,}/u',$_POST["passlog"]) == 1) {
-        echo 'preg_match';
         $_POST["passlog"] = hash("sha256",$_POST["passlog"]);
         foreach($result4 as $data4){
             if( hash_equals( $data4["pass"],$_POST["passlog"])==1 ) {
                 $_SESSION["name"] = $setname;
-                 header("location:head.php");
+                 header("location:title.php");
             }
         }
         if(hash_equals( $data4["pass"],$_POST["passlog"]) != 1){ 
@@ -116,10 +114,6 @@ if(isset($_POST["passlog"])) {
             header("location:login.php");
         }
     } else{$_SESSION["errnamelog"]="アルファベットと数字だけで8文字以上書いてね？"; header("location:login.php");} //英数字８以上でなければやり直し
-}
-echo $home;
-if($home <= 0) {
-    header("location:title.php");//ホームへ//今だけ<a head.php>修正➝title.php
 }
 
 ?>
