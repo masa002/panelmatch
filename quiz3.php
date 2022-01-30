@@ -31,7 +31,7 @@
             //難易度のカウントダウンの処理
             if(isset($_POST['add']) !== false){
                 $_SESSION['level'] = $_SESSION['level'] + 1;
-                if($_SESSION['level'] > 10){
+                if($_SESSION['level'] > 11){
                     $_SESSION['level'] = 2;
                 }
             }

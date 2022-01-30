@@ -2,7 +2,6 @@
 session_start();
 require "db_connect.php";
 $sql = "INSERT INTO pm(name,pass) VALUES(:name,:pass)";
-//あああ
 //アカウント登録signin
 //被った名前を探す
 $sql2 = "select name from pm";
