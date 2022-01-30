@@ -51,8 +51,8 @@ if($perr != 1 && $nerr != 1 ) {
     $stm->bindValue(":pass",$pass,PDO::PARAM_STR); 
     $stm->execute();        //sqlの実行
     $_SESSION["name"] = $name;
-    echo "アカウント登録が完了しました！！"."<br>";
-    echo '<label>'.'<a href="title.php">'.'トップ画面へ'.'</a>'.'</label>'; //今だけ<a head.php>修正➝title.php
+    header("location:signin.php");
+    $_SESSION["signin"] = 1;
 }
 
 
