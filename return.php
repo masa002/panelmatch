@@ -54,7 +54,7 @@ if($perr != 1 && $nerr != 1 ) {
 
 
 
-/*
+
 //ここから下はlogin.phpの処理
 $home=2;//0になったらログイン成功
 //被った名前を探す
@@ -81,7 +81,7 @@ if(isset($_POST["namelog"])){
             $result4 = $stm4->fetch(PDO::FETCH_ASSOC);
             break;
         } else{
-            $_SESSION["errnamelog"]=1;
+            $_SESSION["errnamelog"]='名前が存在しません';
              header("location:login.php");
 
         }
@@ -90,7 +90,7 @@ if(isset($_POST["namelog"])){
         echo 20;
         header("location:login.php");
     }
-}
+}else{$_SESSION['errnamelog'] = "名前を書いてください";header("location:login.php");}
 
 if(isset($_POST["passlog"])) {
     echo 'post';
@@ -116,4 +116,3 @@ if($home <= 0) {
 }
 
 ?>
-*/
