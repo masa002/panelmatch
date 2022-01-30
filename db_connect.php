@@ -1,9 +1,9 @@
 <?php
 //ユーザー名、パスワード、データベース名、サーバー
 $user = "root";
-$pass="";
-$database="php_jugyo";
-$server="127.0.0.1:3308";
+$pass="i0GKtpBFg7hcOTLcQPf6UETxnICFkRTl";
+$database="pm";
+$server="dbwx0a.stackhero-network.com:3306";
 
 //DSN文字列の生成
 $dsn = "mysql:host={$server};dbname={$database};cherset=utf8";
