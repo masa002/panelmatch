@@ -20,6 +20,22 @@
             require "db_connect.php";
             require "head.php";
 
+            if (isset($_SESSION["level"]) === false) $_SESSION["level"] = 2;
+            //難易度のカウントアップの処理
+            if(isset($_POST['pull']) !== false){
+                $_SESSION['level'] = $_SESSION['level'] - 1;
+                if($_SESSION['level'] < 2){
+                    $_SESSION['level'] = 11;
+                }
+            }
+            //難易度のカウントダウンの処理
+            if(isset($_POST['add']) !== false){
+                $_SESSION['level'] = $_SESSION['level'] + 1;
+                if($_SESSION['level'] > 10){
+                    $_SESSION['level'] = 2;
+                }
+            }
+
             $score = 0;
             $cnt1 = $cnt2 = 0;
 
@@ -31,13 +47,16 @@
             foreach($checks as $check) {
                 if($panels[$check - 1] === "black") {$score += 1000; $cnt1+=1;}
                 if($panels[$check - 1] === "white") {$score -= 500; $cnt2 += 1;}
+            } 
+            if ($score !== 0){
+                $_SESSION["ccnt1"] = $cnt1;
+                $_SESSION["ccnt2"] = $cnt2;
+                $_SESSION["cscore"] = $score;
             }
 
-            $_SESSION["ccnt1"] = $cnt1;
-            $_SESSION["ccnt2"] = $cnt2;
-            $_SESSION["cscore"] = $score;
-
             echo "<h2 class='tt'>".$_SESSION["ccnt1"]."個正解で、".$_SESSION["ccnt2"]."個不正解です。得点は".$_SESSION["cscore"]."ポイントです。</h2>";
+            echo '<h2 class="tt">難易度設定</h2><br><form action="quiz3.php" id="form2" method="POST"><div class="form-top"><button type="submit" name="pull" class="button">－</button><span class="tt">';
+            echo "　".($_SESSION["level"] - 1).'　</span><button type="submit" name="add" class="button">＋</button></div></form><br>';
             echo "<div class='form-top'><form action='quiz1.php' method='POST'><input type='submit' value='もう一度プレイ' class='start-btn'></form></div>";
 
             if (isset($_SESSION["name"]) !== false){
