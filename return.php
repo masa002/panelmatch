@@ -115,4 +115,5 @@ if(isset($_POST["passlog"])) {
     } else{$_SESSION["errpasslog"]="アルファベットと数字だけで8文字以上書いてね？"; header("location:login.php");} //英数字８以上でなければやり直し
 }
 
+
 ?>
