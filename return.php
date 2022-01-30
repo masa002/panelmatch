@@ -62,7 +62,7 @@ $result3 = $stm3->fetchAll(PDO::FETCH_ASSOC);
 $sql4 = "select pass from pm where name = :namelog";
 $stm4 = $pdo->prepare($sql4);
 //登録されたname,passと$_POST["namelog"],$_POST["passlog]が同じならログイン
-if(isset($_POST["namelog"])){
+if(isset($_POST["namelog"]) && $_POST["name"] !== ""){
     foreach($result3 as $data3) {
         if($data3["name"] === $_POST["namelog"]) {
             $setname = htmlspecialchars($_POST["namelog"],ENT_QUOTES,"UTF-8");
