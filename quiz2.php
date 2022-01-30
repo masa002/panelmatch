@@ -5,7 +5,8 @@
         <link rel="stylesheet" href="style.css">
         <style type="text/css">
             .button_wrapper {
-                text-align:center;
+                margin-top: 30px;
+                text-align: center;
             }
         </style>
         <title>パネルマッチ</title>
