@@ -14,7 +14,7 @@
     if(isset($_POST['pull']) !== false){
         $_SESSION['level'] = $_SESSION['level'] - 1;
         if($_SESSION['level'] < 2){
-            $_SESSION['level'] = 10;
+            $_SESSION['level'] = 11;
         }
     }
     //難易度のカウントダウンの処理
@@ -43,7 +43,7 @@
     <form action="title.php" id="form2" method="POST">
         <div class="form-top">
             <button type="submit" name="pull" class="button">－</button>
-            <span class="tt"><?php echo "　".$_SESSION['level']."　";?></span>
+            <span class="tt"><?php echo "　".($_SESSION['level'] - 1)."　";?></span>
             <button type="submit" name="add" class="button">＋</button>
         </div>
     </form>
