@@ -26,8 +26,9 @@
             $max = $level ** 2;
             $panels = array_fill(0, $max, "white");
             $cnt1 = $cnt2 = 1;
-
-            echo "<form action='quiz3.php' method='POST'><table border=1 height=1000 width=100%><tr>";
+            
+            //height=1000 -> height=500に変更
+            echo "<form action='quiz3.php' method='POST'><table border=1 height=500 width=100%><tr>";
             foreach($panels as $panel){
                 if ($cnt1 % ($level + 1) === 0) {
                     echo "</tr><tr>";
@@ -67,3 +68,4 @@
             //}
         </script>
     </body>
+</html>

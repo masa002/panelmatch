@@ -69,7 +69,8 @@
             }
             $_SESSION["question"] = $panels;
 
-            echo "<table border=1 height=1000 width=100%><tr>";
+            //height=1000 -> height=600に変更
+            echo "<table border=1 height=600 width=100%><tr>";
 
             $cnt = 1;
             foreach($panels as $panel){
