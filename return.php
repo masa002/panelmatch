@@ -33,7 +33,7 @@ if(isset($_POST["pass"])){
         $pass = hash("sha256",$_POST["pass"]);
         $perr = 0;
     } else {
-        $_SESSION["errpass"]="パスワード書式エラー";
+        $_SESSION["errpass"]="アルファベットと数字だけで8文字以上書いてね？";
         header("location:signin.php");
     }
 }
