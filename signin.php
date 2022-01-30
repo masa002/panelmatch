@@ -15,7 +15,7 @@ session_start();
                 display: flex;
                 justify-content: space-between;
                 margin: 0 auto;
-                font-size: 1.3rem;
+                font-size: 1.5rem;
                 background-color: #ffd958;
                 padding-left: 20%;
                 padding-right: 15%;
@@ -31,7 +31,7 @@ session_start();
             .h_img1 {
                 width: 30px;
                 height: 30px;
-                margin-top: 20px;
+                margin-top: 25px;
                 margin-right: 5px;
             }
             .h_in { display: flex; }
@@ -42,7 +42,7 @@ session_start();
             .h_img2 {
                 width: 28px;
                 height: 28px;
-                margin-top: 23px;
+                margin-top: 28px;
                 margin-right: 5px;
             }
             .h_logou { margin-left: 30px; transition: 0.3s; }
@@ -74,6 +74,7 @@ session_start();
                 transition    : .3s;         /* なめらか変化 */
                  box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
             }
+            .sigsub:hover { box-shadow: none; }
             .aka{ text-align: center; color:blue; font-family: 'Meiryo'; margin-top: 50px; }
         </style>
     </head>
