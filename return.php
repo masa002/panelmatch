@@ -14,7 +14,7 @@ $perr=1;
 if( $result2!=null ) {
     if(isset($_POST["name"])) {
         if($result2["name"] === $_POST["name"]) {
-            $_SESSION["errname"]="名前重複エラー";
+            $_SESSION["errname"]="もう使われている名前だよ？";
             header("location:signin.php");
         } else {
             $name = htmlspecialchars($_POST["name"],ENT_QUOTES,"UTF-8");
