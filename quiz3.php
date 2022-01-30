@@ -33,8 +33,11 @@
                 if($panels[$check - 1] === "white") {$score -= 500; $cnt2 += 1;}
             }
 
+            $_SESSION["ccnt1"] = $cnt1;
+            $_SESSION["ccnt2"] = $cnt2;
+            $_SESSION["cscore"] = $score;
 
-            echo "<h2 class='tt'>".$cnt1."個正解で、".$cnt2."個不正解です。得点は".$score."ポイントです。</h2>";
+            echo "<h2 class='tt'>".$_SESSION["ccnt1"]."個正解で、".$_SESSION["ccnt2"]."個不正解です。得点は".$_SESSION["cscore"]."ポイントです。</h2>";
             echo "<div class='form-top'><form action='quiz1.php' method='POST'><input type='submit' value='もう一度プレイ' class='start-btn'></form></div>";
 
             if (isset($_SESSION["name"]) !== false){
