@@ -56,6 +56,8 @@
                 margin-left: 30px;
                 transition: 0.3s;
             }
+            .h_pro { transition:0.3s; }
+            .h_pro:hover { transform: scale(1.2,1.2); }
             .h_logou:hover { transform: scale(1.2,1.2); }
             .h_login { transition: 0.3s; }
             .h_login:hover { transform: scale(1.2,1.2); }
@@ -83,7 +85,7 @@
         //ログインしている状態かどうか、している
         if( isset($_SESSION['name']) ) {      //SESSIONに名前があるか   //今だけaタグの中身 head.php➝修正title.php ↓
             echo "<div class='h_logout'>
-                    <a href='profile.php'><p>".$_SESSION['name']."さん</p></a>
+                    <a href='profile.php' class='h_pro'><p>".$_SESSION['name']."さん</p></a>
                     <form action='title.php' method='POST'>
                         <a><button type='submit' name='logout'><p class='h_logou'>ログアウト</p></button></a>
                     </form>
