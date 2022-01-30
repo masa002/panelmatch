@@ -52,7 +52,7 @@ if($perr != 1 && $nerr != 1 ) {
     $stm->execute();        //sqlの実行
     $_SESSION["name"];
     echo "アカウント登録が完了しました！！"."<br>";
-    echo '<label>'.'<a href="head.php">'.'トップ画面へ'.'</a>'.'</label>'; //今だけ<a head.php>修正➝title.php
+    echo '<label>'.'<a href="title.php">'.'トップ画面へ'.'</a>'.'</label>';
 }
 
 
@@ -108,7 +108,7 @@ if(isset($_POST["passlog"])) {
         foreach($result4 as $data4){
             if( hash_equals( $data4["pass"],$_POST["passlog"])==1 ) {
                 $_SESSION["name"] = $setname;
-                 header("location:head.php");
+                header("location:title.php");
             }
         }
         if(hash_equals( $data4["pass"],$_POST["passlog"]) != 1){ 
@@ -119,7 +119,7 @@ if(isset($_POST["passlog"])) {
 }
 echo $home;
 if($home <= 0) {
-    header("location:title.php");//ホームへ//今だけ<a head.php>修正➝title.php
+    header("location:title.php");//ホームへ
 }
 
 ?>
