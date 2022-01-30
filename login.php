@@ -70,7 +70,7 @@ session_start();
                 padding       : 24px 100px;  /* 余白       */
                 background    : rgba(255, 166, 77, 0.82);   /* 背景色     */
                 color         : #ffffff;   /* 文字色     */
-                line-height   : 1em;         /* 1行の高さ  */
+                line-height   : 1em;       /* 1行の高さ  */
                 transition    : .3s;         /* なめらか変化 */
                  box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
             }

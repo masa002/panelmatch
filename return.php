@@ -16,7 +16,7 @@ unset($_SESSION["errpass"]);
 unset($_SESSION["errnamelog"]);
 unset($_SESSION["errpasslog"]);
 // $result2 -> select name from pm
-if(isset($_POST["name"])) {
+if(isset($_POST["name"]) && $_POST["name"] !== "") {
     if( $result2!=null ) {
         foreach($result2 as $dust){
             if($dust["name"] === $_POST["name"]) {
