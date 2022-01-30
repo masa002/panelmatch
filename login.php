@@ -61,7 +61,7 @@ session_start();
             .login p {
                 font-size: 1.3vw;
             }
-            .logsub { margin-left: 6vw;
+            .logsub { margin-left: 4vw;
                 display       : inline-block;
                 border-radius : 25%;         /* 角丸       */
                 font-size     : 18pt;        /* 文字サイズ */
