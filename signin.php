@@ -53,17 +53,7 @@ session_start();
             .h_signin:hover { transform: scale(1.2,1.2); }
 
             /* signin部分 */
-            .signin {    display       : inline-block;
-                    border-radius : 25%;         /* 角丸       */
-                    font-size     : 18pt;        /* 文字サイズ */
-                    text-align    : center;      /* 文字位置   */
-                    cursor        : pointer;     /* カーソル   */
-                    padding       : 24px 100px;  /* 余白       */
-                    background    : rgba(255, 166, 77, 0.82);   /* 背景色     */
-                    color         : #ffffff;   /* 文字色     */
-                    line-height   : 1em;         /* 1行の高さ  */
-                    transition    : .3s;         /* なめらか変化 */
-                    box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
+            .signin {
                 margin-top: 5vw;
                 margin-left: 35vw;
             }
@@ -71,7 +61,19 @@ session_start();
                 font-size: 1.3vw;
             }
             .signin a { font-size: 12px; }
-            .sigsub { margin-left: 12vw; }
+            .sigsub { margin-left: 6vw;
+                display       : inline-block;
+                border-radius : 25%;         /* 角丸       */
+                font-size     : 18pt;        /* 文字サイズ */
+                text-align    : center;      /* 文字位置   */
+                cursor        : pointer;     /* カーソル   */
+                padding       : 24px 100px;  /* 余白       */
+                background    : rgba(255, 166, 77, 0.82);   /* 背景色     */
+                color         : #ffffff;   /* 文字色     */
+                line-height   : 1em;         /* 1行の高さ  */
+                transition    : .3s;         /* なめらか変化 */
+                 box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
+            }
             .aka{ text-align: center; color:blue; font-family: 'Meiryo'; margin-top: 50px; }
         </style>
     </head>
