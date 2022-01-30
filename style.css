@@ -80,3 +80,8 @@ p.tt {
     color: #494949;/*文字色*/
     background: #fdecd6;/*背景色*/
 }
+
+strong.lf{
+    font-size:25px;
+    text-align: center;
+}
